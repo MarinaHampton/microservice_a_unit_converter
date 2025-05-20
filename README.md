@@ -1,7 +1,7 @@
 # Unit Converter Microservice
 
 ### Description of unit converter microservice: 
-converts between C and F and F to C. Uses ZeroMQ.
+This microservice converts between C and F and F to C using ZeroMQ.
 
 ### Communication Contract: 
 This microservice uses ZeroMQ request-reply pattern.
@@ -12,7 +12,10 @@ To request the microservice to convert temperature units, a JSON string should b
 to the bound address (5555). 
 
 example call: 
-```JSON
+```python
+import zmq
+import json
+
 context = zmq.Context()
 requester = context.socket(zmq.REQ)
 requester.connect("tcp://localhost:5555")
@@ -26,9 +29,11 @@ request_data = {
 ```
 
 ### How to pragmatically RECEIVE data
-```JSON
+The unit converter microservice will respond with a JSON string (an example is shown below). The client will need to receive
+the sting and parse it as a JSON object. 
+```
 {
-  "values": [ /* an array of converted values (in the same order as the request) */ ]
+  "values": [ 45.54 , 10.55, 20.33 ]
 }
 
 ```
