@@ -34,6 +34,5 @@ request_data = {
 ```
 
 ### UML sequence diagram
+![UML Sequence Diagram](UML_microservice_a.png)
 
-
-![UML_microservice_a.png](../../Desktop/UML_microservice_a.png)
