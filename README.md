@@ -35,9 +35,5 @@ request_data = {
 
 ### UML sequence diagram
 
-TODO
 
-
-
-
-
+![UML_microservice_a.png](../../Desktop/UML_microservice_a.png)
