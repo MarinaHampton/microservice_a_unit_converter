@@ -31,13 +31,15 @@ def conversion (request):
         values = requested_data.get("values", [])
         results = [] #returns an array
 
-        # actual conversions,
+        # convert from C to F
         if from_unit == "C" and to_unit == "F":
             for val in values:
                 results.append(round(celsius_to_fahrenheit(val), result_scale))
+        # convert from F to C
         elif from_unit == "F" and to_unit == "C":
             for val in values:
                 results.append(round(fahrenheit_to_celsius(val), result_scale))
+        # conversion unsupported ie. K to F
         else:
             return json.dumps({"error": "Unsupported unit conversion"})
 
